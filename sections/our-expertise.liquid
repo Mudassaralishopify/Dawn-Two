@@ -1,0 +1,301 @@
+<style>
+.section-our-expertise {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.our-expertise-card {
+    width: calc(33.3% - 24px);
+    background-color: #f8fbfe;
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    margin: 0.875rem 0;
+    min-height: calc(100% - 1.75rem);
+    transition: all .3s;
+}
+.our-expertise-card:hover {
+    background-color: #30b795;
+    color: #f8fbfe;
+}
+.oe-card-icon {
+    height: 48px;
+    width: 48px;
+}
+.learn-more-btn {
+    text-decoration: none;
+    color: #30b795;
+}
+.our-expertise-card:hover .learn-more-btn, .our-expertise-card:hover .oe-card-heading{
+    color: #fff;
+}
+.oe-card-heading {
+    font-size: 2.525rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+</style>
+
+{% style %}
+  .radio-button {
+    height: 300px;
+    background-color: green;
+    color: #fff;
+    text-align: {{ section.settings.logo_aligment }}
+  }
+  .radio-button {
+    font-size: {{ section.settings.font_size}}px
+  }
+  .radio-button {
+    display: flex;
+    align-items: {{ section.settings.vertical_alignment}}
+  }
+{% endstyle %}
+
+
+
+<!-- <div class="section-our-expertise">
+    <img src="{{ section.settings.card_logo_image | img_url: '200x200' }}" />
+    <div class="hello">
+        {{ section.settings.card_heading }}
+    </div>
+    <div class="card-content">
+        {{ section.settings.home_welcome_message }}
+    </div>
+    <a href="{{section.settings.button_link}}"> HELLO MY LINK</a>
+</div> -->
+
+{% if section.blocks != blank %}
+<div class="section-our-expertise">
+    {% for block in section.blocks %}
+        <div class="our-expertise-card">
+            {% if block.settings.card_heading != blank %}
+                <img class="oe-card-icon" src="{{ block.settings.card_logo_image | img_url: '200x200' }}" />
+            {% endif %}
+
+            {% if block.settings.card_heading != blank %}
+                <h3 class="oe-card-heading" {{ block.shopify_attributes }}>
+                    {{ block.settings.card_heading }}
+                </h3>
+            {% endif %}
+
+            {% if block.settings.card_content != blank %}
+                <div class="oe-card-content" {{ block.shopify_attributes }}>
+                    {{ block.settings.card_content }}
+                </div>
+            {% endif %}
+
+            {% if block.settings.button_link != blank %}
+                <div class="oe-card-content" {{ block.shopify_attributes }}>
+                    <a href="{{ block.settings.button_link }}" class="learn-more-btn"> Learn More </a>
+                </div>
+            {% endif %}
+
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+{% if section.settings.show_announcement %}
+ <h1> hello world </h1>
+ {% else %}
+  <h2>Hi Stranger!</h2>
+{% endif %}
+
+{% if section.settings.products_per_page != blank %}
+ <h1> {{ section.settings.products_per_page }} </h1>
+{% endif %}
+
+
+{% if section.settings.products_per_page != blank %}
+
+ <p class="radio-button" >We excel in providing cutting edge solutions and development services that drive business performance, cultivate startups and accelerate growth.</p>
+{% endif %}
+
+{% if section.settings.footer_linklist_title != blank %}
+  <h1> {{ section.settings.footer_linklist_title }} </h1>
+{% endif%}
+
+{% if section.settings.home_welcome_message != blank %}
+  <h3> {{ section.settings.home_welcome_message }}</h3>
+{% endif%}
+
+
+{% if section.settings.article != blank %}
+
+  <div class="article-block">
+    <!-- {{ section.settings.article }} -->
+    <h3>
+      {{ section.settings.article.comment_post_url }}
+    </h3>
+    <h5>
+      {{ section.settings.article.created_at | date: "%a, %b %d, %y" }}
+    </h5>
+    <div class="img-block">
+      <img src="{{ section.settings.article.image.src | image_url: width: 500 }}"> 
+      <!-- {{ article.image.src | image_url: width: 500 }} -->
+    </div>
+    <div class="artical-tage">
+      {% for tag in section.settings.article.tags %}
+         <h3> {{ tag }} </h3>
+      {% endfor %}
+      {% for tag in section.settings.article.tags %}
+         <h5> {{ tag }} ({{ tag.total_count }}) </h5>
+      {% endfor %}
+    </div>
+    <div class="artical-url">
+      {{ section.settings.article.url }}
+    </div>
+  </div>
+
+{% endif %}
+
+
+
+{% if section.settings.blog %}
+
+  <div class="article-block">
+    <!-- {{ section.settings.article }} -->
+    <h3>
+      {% for tag in section.settings.blog.all_tags %}
+        {{ tag }}{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    </h3>
+    <h5>
+      {% for article in section.settings.blog.articles %}
+        <h2>{{ article.title }}</h2>
+    {% endfor %}
+    </h5>
+    
+  </div>
+
+{% endif %}
+
+
+{% schema %}
+
+    
+{
+    "name": "Card blocks",
+    "settings": [
+    {
+        "type": "checkbox",
+        "id": "show_announcement",
+        "label": "Show announcement",
+        "default": true
+      },
+      {
+        "type": "number",
+        "id": "products_per_page",
+        "label": "Products per page",
+        "default": 20
+      },
+      {
+        "type": "radio",
+        "id": "logo_aligment",
+        "label": "Logo alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left"
+      },
+      {
+        "type": "range",
+        "id": "font_size",
+        "min": 12,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size",
+        "default": 16
+      },
+      {
+        "type": "select",
+        "id": "vertical_alignment",
+        "label": "Vertical alignment",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "flex-end",
+            "label": "Bottom"
+          }
+        ],
+        "default": "center"
+      },
+      {
+        "type": "text",
+        "id": "footer_linklist_title",
+        "label": "Heading",
+        "default": "Quick links"
+      },
+      {
+        "type": "textarea",
+        "id": "home_welcome_message",
+        "label": "Welcome message",
+        "default": "Welcome to my shop!"
+      },
+      {
+        "type": "article",
+        "id": "article",
+        "label": "Article"
+      },
+      {
+        "type": "blog",
+        "id": "blog",
+        "label": "Blog"
+      }
+
+    ],
+    "blocks":[
+            {
+            "name": "Card",
+            "type": "header",
+                "settings": [
+                    {
+                        "type":"image_picker",
+                        "id":"card_logo_image",
+                        "label":"upload card logo"
+                    },
+                    {
+                        "type":"text",
+                        "id":"card_heading",
+                        "label":"Card Heading"
+                    },
+                    {
+                        "type":"textarea",
+                        "id":"card_content",
+                        "label":"Add Card Content"
+                    },
+                    {
+                        "type":"url",
+                        "id":"button_link",
+                        "label":"Add Read More link"
+                    }
+    
+                ]
+            }
+        ]
+}
+
+
+
+{% endschema %}
+
