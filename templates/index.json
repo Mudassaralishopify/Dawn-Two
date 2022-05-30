@@ -1,8 +1,5 @@
 {
   "sections": {
-    "our-expertise": {
-      "type":"our-expertise"
-    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -221,7 +218,6 @@
     }
   },
   "order": [
-    "our-expertise",
     "image_banner",
     "rich_text",
     "featured_collection",
