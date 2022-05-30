@@ -1,11 +1,12 @@
 {
-    "sections": {
-      "cd-products": {
-        "type":"cd-products"
+  "sections": {
+    "cd-products": {
+      "type": "cd-products",
+      "settings": {
       }
-    },
-    "order": [
-      "cd-products"
-    ]
+    }
+  },
+  "order": [
+    "cd-products"
+  ]
 }
-
