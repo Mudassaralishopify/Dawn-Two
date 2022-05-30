@@ -1,0 +1,11 @@
+{
+    "sections": {
+      "cd-products": {
+        "type":"cd-products"
+      }
+    },
+    "order": [
+      "cd-products"
+    ]
+}
+
