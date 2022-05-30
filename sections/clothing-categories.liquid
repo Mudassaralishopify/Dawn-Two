@@ -1,0 +1,19 @@
+{% if section.settings.textSection != "blanck" %}
+<h1>
+  {{ section.settings.textSection }}
+</h1>
+{% endif %}
+
+
+{% schema %}
+{
+"name": "Section name",
+"settings": [
+{
+"type": "text",
+"id": "textSection",
+"label": "Input Text"
+}
+]
+}
+{% endschema %}
