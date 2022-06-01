@@ -1,0 +1,75 @@
+
+
+
+
+{% schema %}
+{
+  "name": "Multiple Blocks",
+  "blocks":[
+    {
+      "type": "block-1",
+      "name": "Block 1",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_picker_one",
+          "label": "pick one image"
+        }
+      ]
+    },
+    {
+      "type": "block-2",
+      "name": "Block 2",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_picker_1",
+          "label": "pick image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_picker_2",
+          "label": "pick image"
+        }
+      ]
+    },
+    {
+      "type": "block-3",
+      "name": "Block 3",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_picker_01",
+          "label": "pick image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_picker_02",
+          "label": "pick image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_picker_03",
+          "label": "pick image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% for block in section.blocks %}
+  {% if block.type == 'block-1' %}
+    {{block.settings.image_picker_one | img_url: '200x200' | img_tag}}
+  {% elsif block.type == 'block-2' %}
+    {{block.settings.image_picker_1 | img_url: '200x200' | img_tag}}
+    {{block.settings.image_picker_2 | img_url: '200x200' | img_tag}}
+
+    {% elsif block.type == 'block-3' %}
+    <div>
+      {{block.settings.image_picker_01 | img_url: '200x200' | img_tag}}
+      {{block.settings.image_picker_02 | img_url: '200x200' | img_tag}}
+      {{block.settings.image_picker_03 | img_url: '200x200' | img_tag}}
+    </div>
+  {% endif %}
+{% endfor %}

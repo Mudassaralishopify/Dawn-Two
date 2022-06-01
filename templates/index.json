@@ -1,5 +1,8 @@
 {
   "sections": {
+    "slider_one_item": {
+      "type": "slider-one-item"
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -218,6 +221,7 @@
     }
   },
   "order": [
+    "slider_one_item",
     "image_banner",
     "rich_text",
     "featured_collection",

@@ -1,0 +1,117 @@
+<style>
+  .slider-item {
+    position: relative;
+  }
+  .slider-img-card{
+    position: absolute;
+    bottom: 200px;
+    left: 100px;
+    background: rgba(12, 196, 89, 0.719);
+    padding: 2rem;
+    color: #fff;
+    max-width: 600px;
+  }
+  .slider-img-card h3 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .slider-img-card p {
+    font-size: 1.5rem;
+  }
+  .slider-img-card a {
+    padding: 10px 30px;
+    color: #fff;
+    font-size: 16px;
+    border: 1px solid #fff;
+    margin-top: 1.5rem;
+  }
+  .slick-next.slick-arrow, .slick-prev.slick-arrow {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    background: #126936;
+    z-index: 1;
+  }
+  .slick-prev.slick-arrow {
+    left: 20px;
+  }
+  .slick-next.slick-arrow {
+    right: 20px;
+  }
+  
+</style>
+
+<script src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
+<div class="container-fluid p-0">
+  <div class="slick-carousel">
+    {%- for block in section.blocks -%}
+      {% if  block.type == 'Slider-Items'%}
+        <div class="slider-item">
+          <div class="ratio ratio-21x9">
+            <img src="{{block.settings.slider_image | img_url: '1200x1200' }}"class="img-fluid" >
+          </div>
+          <div class="container position-relative">
+            <div class="slider-img-card">
+              <h3>{{ block.settings.slider_item_heading }}</h3>
+              <p> {{ block.settings.slider_item_content }}</p>
+              <a class="btn" href="{{ block.settings.btn_link}}"> {{ block.settings.btn_content }} </a>
+            </div>
+        </div>
+        </div>
+      {% endif %}
+    {%- endfor -%}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "slider",
+  "tag": "section",
+  "class": "alider-section",
+  "settings": [
+  ],
+  "blocks": [
+  {
+  "type": "Slider-Items",
+  "name": "Slider Items",
+  "settings": [
+        { 
+          "type": "image_picker",
+          "id": "slider_image",
+          "label": "slider image"
+        },
+        { 
+          "type": "text",
+          "id": "slider_item_heading",
+          "label": "Heading"
+        },
+        { 
+          "type": "textarea",
+          "id": "slider_item_content",
+          "label": "Content"
+        },
+        { 
+          "type": "url",
+          "id": "btn_link",
+          "label": "Add Link"
+        },
+        { 
+          "type": "text",
+          "id": "btn_content",
+          "label": "Add Button Content"
+        }
+    ]
+  }
+   
+  ],
+  "presets": [
+    {
+      "name": "t:sections.apps.presets.name"
+    }
+  ]
+}
+{% endschema %}

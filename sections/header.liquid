@@ -61,7 +61,14 @@
     padding-top: 1rem;
     line-height: calc(1 + 0.8 / var(--font-body-scale));
   }
-
+  .user-icon-style {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+.header__icons {
+  align-items: center;
+}
   @media screen and (min-width: 750px) {
     .list-menu__item--link {
       padding-bottom: 0.5rem;
@@ -464,6 +471,18 @@
     {%- endif -%}
 
     <div class="header__icons">
+      
+         
+          <div class="dropdown">
+            <img src="https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png" alt="user" class="user-icon-style dropdown-toggle" d="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+      
       <details-modal class="header__search">
         <details>
           <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
