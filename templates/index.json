@@ -32,12 +32,23 @@
             "btn_link": "shopify:\/\/pages\/man",
             "btn_content": "The Like"
           }
+        },
+        "fcaf2b6f-fa71-4013-ae6c-ac6a752bb14e": {
+          "type": "Slider-Items",
+          "settings": {
+            "slider_image": "shopify:\/\/shop_images\/wp2789220.webp",
+            "slider_item_heading": "Where does it come from?",
+            "slider_item_content": "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.",
+            "btn_link": "shopify:\/\/pages\/kids",
+            "btn_content": "Translation"
+          }
         }
       },
       "block_order": [
         "4a5a7eef-0e83-4e4c-a2d7-c6de68818c7a",
         "0eda5503-8458-4f92-8395-7b5b07604520",
-        "9bf9d74b-6640-4db3-952e-e4130ecb8401"
+        "9bf9d74b-6640-4db3-952e-e4130ecb8401",
+        "fcaf2b6f-fa71-4013-ae6c-ac6a752bb14e"
       ],
       "settings": {
       }
