@@ -12,10 +12,21 @@
             "btn_link": "shopify:\/\/pages\/kids",
             "btn_content": "Readable English"
           }
+        },
+        "0eda5503-8458-4f92-8395-7b5b07604520": {
+          "type": "Slider-Items",
+          "settings": {
+            "slider_image": "shopify:\/\/shop_images\/medical-563427_960_720.webp",
+            "slider_item_heading": "Why do we use it?",
+            "slider_item_content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+            "btn_link": "shopify:\/\/pages\/man",
+            "btn_content": "Content Here"
+          }
         }
       },
       "block_order": [
-        "4a5a7eef-0e83-4e4c-a2d7-c6de68818c7a"
+        "4a5a7eef-0e83-4e4c-a2d7-c6de68818c7a",
+        "0eda5503-8458-4f92-8395-7b5b07604520"
       ],
       "settings": {
       }
