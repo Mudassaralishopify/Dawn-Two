@@ -42,13 +42,24 @@
             "btn_link": "shopify:\/\/pages\/kids",
             "btn_content": "Translation"
           }
+        },
+        "deb179da-7f8c-4497-9307-a74c5159662f": {
+          "type": "Slider-Items",
+          "settings": {
+            "slider_image": "shopify:\/\/shop_images\/tiger-fractal-face-eyes-pattern-stripes-grass-art-high-resolution-pictures-1080P-wallpaper.jpg",
+            "slider_item_heading": "Where can I get some?",
+            "slider_item_content": "It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+            "btn_link": "shopify:\/\/pages\/womens",
+            "btn_content": "Characteristic"
+          }
         }
       },
       "block_order": [
         "4a5a7eef-0e83-4e4c-a2d7-c6de68818c7a",
         "0eda5503-8458-4f92-8395-7b5b07604520",
         "9bf9d74b-6640-4db3-952e-e4130ecb8401",
-        "fcaf2b6f-fa71-4013-ae6c-ac6a752bb14e"
+        "fcaf2b6f-fa71-4013-ae6c-ac6a752bb14e",
+        "deb179da-7f8c-4497-9307-a74c5159662f"
       ],
       "settings": {
       }
