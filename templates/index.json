@@ -22,11 +22,22 @@
             "btn_link": "shopify:\/\/pages\/man",
             "btn_content": "Content Here"
           }
+        },
+        "9bf9d74b-6640-4db3-952e-e4130ecb8401": {
+          "type": "Slider-Items",
+          "settings": {
+            "slider_image": "shopify:\/\/shop_images\/download.jpg",
+            "slider_item_heading": "Why do we use it?",
+            "slider_item_content": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+            "btn_link": "shopify:\/\/pages\/man",
+            "btn_content": "The Like"
+          }
         }
       },
       "block_order": [
         "4a5a7eef-0e83-4e4c-a2d7-c6de68818c7a",
-        "0eda5503-8458-4f92-8395-7b5b07604520"
+        "0eda5503-8458-4f92-8395-7b5b07604520",
+        "9bf9d74b-6640-4db3-952e-e4130ecb8401"
       ],
       "settings": {
       }
