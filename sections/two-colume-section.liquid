@@ -1,3 +1,67 @@
+<style>
+  .single-card, .two-card {
+    position: relative;
+    overflow: hidden;
+  }
+  .single-card::after {
+    content: '';
+    display: block;
+    padding-top: 40%;
+  }
+  .single-card img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+  }
+  .single-card .content-card, .two-card .content-card {
+    position: absolute;
+  }
+  .two-card {
+
+  }
+</style>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-6">
+        {%- for block in section.blocks -%}
+          {% if  block.type == 'product-item' %}
+            {% if  block.settings.two_card_opation != true %}
+              <a href="{{block.settings.one_item_url}}" class="single-card">
+                <img src="{{ block.settings.one_card_image | img_url: '500x500' }}"  alt=""/>
+                <div class="content-card">
+                  <p>{{ block.settings.popover_text}}</p>
+                  <h3>{{ block.settings.card_heading }}</h3>
+                </div>
+              </a>
+            {% endif %}
+          {% endif %}
+        {%- endfor -%}
+      </div>
+
+      <div class="col-md-6">
+        <div class="row">
+          {%- for block in section.blocks -%}
+            {% if  block.type == 'product-item' %}
+              {% if  block.settings.two_card_opation %}
+                <div class="col-md-12">
+                  <a href="{{block.settings.one_item_url}}" class="two-card">
+                    <img src="{{ block.settings.one_card_image | img_url: '250x250' }}"  alt=""/>
+                    <div class="content-card">
+                      <p>{{ block.settings.popover_text}}</p>
+                      <h3>{{ block.settings.card_heading }}</h3>
+                    </div>
+                  </a>
+                </div>
+              {% endif %}
+            {% endif %}
+          {%- endfor -%}
+        </div>
+      </div>
+  </div>
+</div>
+
 
 
 {% schema %}
@@ -9,9 +73,14 @@
   ],
   "blocks": [
     {
-      "type": "one-product-item",
-      "name": "One Product Item",
+      "type": "product-item",
+      "name": "Product Item",
       "settings": [
+        {
+         "type": "checkbox",
+         "id": "two_card_opation",
+         "label": "Show Two Card" 
+        },
         {
           "type": "image_picker",
           "id": "one_card_image",
@@ -71,11 +140,6 @@
             }
           ],
           "default": "top"
-        },
-        {
-         "type": "checkbox",
-         "id": "two_card_opation",
-         "label": "Show Two Card" 
         }
 
       ]
