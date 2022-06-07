@@ -1,7 +1,68 @@
 {
   "sections": {
     "slider_one_item": {
-      "type": "slider-one-item"
+      "type": "slider-one-item",
+      "blocks": {
+        "4a5a7eef-0e83-4e4c-a2d7-c6de68818c7a": {
+          "type": "Slider-Items",
+          "settings": {
+            "slider_image": "shopify:\/\/shop_images\/3.png",
+            "slider_item_heading": "Where can I get some?",
+            "slider_item_content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+            "btn_link": "shopify:\/\/pages\/kids",
+            "btn_content": "Readable English"
+          }
+        },
+        "0eda5503-8458-4f92-8395-7b5b07604520": {
+          "type": "Slider-Items",
+          "settings": {
+            "slider_image": "shopify:\/\/shop_images\/medical-563427_960_720.webp",
+            "slider_item_heading": "Why do we use it?",
+            "slider_item_content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+            "btn_link": "shopify:\/\/pages\/man",
+            "btn_content": "Content Here"
+          }
+        },
+        "9bf9d74b-6640-4db3-952e-e4130ecb8401": {
+          "type": "Slider-Items",
+          "settings": {
+            "slider_image": "shopify:\/\/shop_images\/download.jpg",
+            "slider_item_heading": "Why do we use it?",
+            "slider_item_content": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+            "btn_link": "shopify:\/\/pages\/man",
+            "btn_content": "The Like"
+          }
+        },
+        "fcaf2b6f-fa71-4013-ae6c-ac6a752bb14e": {
+          "type": "Slider-Items",
+          "settings": {
+            "slider_image": "shopify:\/\/shop_images\/wp2789220.webp",
+            "slider_item_heading": "Where does it come from?",
+            "slider_item_content": "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.",
+            "btn_link": "shopify:\/\/pages\/kids",
+            "btn_content": "Translation"
+          }
+        },
+        "deb179da-7f8c-4497-9307-a74c5159662f": {
+          "type": "Slider-Items",
+          "settings": {
+            "slider_image": "shopify:\/\/shop_images\/tiger-fractal-face-eyes-pattern-stripes-grass-art-high-resolution-pictures-1080P-wallpaper.jpg",
+            "slider_item_heading": "Where can I get some?",
+            "slider_item_content": "It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+            "btn_link": "shopify:\/\/pages\/womens",
+            "btn_content": "Characteristic"
+          }
+        }
+      },
+      "block_order": [
+        "4a5a7eef-0e83-4e4c-a2d7-c6de68818c7a",
+        "0eda5503-8458-4f92-8395-7b5b07604520",
+        "9bf9d74b-6640-4db3-952e-e4130ecb8401",
+        "fcaf2b6f-fa71-4013-ae6c-ac6a752bb14e",
+        "deb179da-7f8c-4497-9307-a74c5159662f"
+      ],
+      "settings": {
+      }
     },
     "two_colume_section": {
       "type": "two-colume-section"
