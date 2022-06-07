@@ -1,5 +1,10 @@
 {
   "sections": {
+    "store_info_card": {
+      "type": "store-info-card",
+      "settings": {
+      }
+    },
     "slider_one_item": {
       "type": "slider-one-item",
       "blocks": {
@@ -65,10 +70,26 @@
       }
     },
     "two_colume_section": {
-      "type": "two-colume-section"
-    },
-    "store_info_card": {
-      "type": "store-info-card"
+      "type": "two-colume-section",
+      "blocks": {
+        "45727e38-825e-49ae-aaf4-52738c63df1a": {
+          "type": "product-item",
+          "settings": {
+            "two_card_opation": true,
+            "one_card_image": "shopify:\/\/shop_images\/download.jpg",
+            "card_heading": "Card Heading",
+            "popover_text": "Product detaile Page link",
+            "one_item_url": "shopify:\/\/pages\/kids",
+            "popover_top_position": "start",
+            "popover_left_position": "top"
+          }
+        }
+      },
+      "block_order": [
+        "45727e38-825e-49ae-aaf4-52738c63df1a"
+      ],
+      "settings": {
+      }
     },
     "image_banner": {
       "type": "image-banner",
