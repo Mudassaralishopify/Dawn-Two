@@ -95,11 +95,24 @@
             "popover_top_position": "start",
             "popover_left_position": "top"
           }
+        },
+        "81e9b408-aca2-40d0-b8ee-c6b3d3d6e31e": {
+          "type": "product-item",
+          "settings": {
+            "two_card_opation": false,
+            "one_card_image": "shopify:\/\/shop_images\/woman-relazing-and-journalling-on-couch.jpg",
+            "card_heading": "Card Heading",
+            "popover_text": "Product detaile Page link",
+            "one_item_url": "shopify:\/\/pages\/womens",
+            "popover_top_position": "start",
+            "popover_left_position": "top"
+          }
         }
       },
       "block_order": [
         "45727e38-825e-49ae-aaf4-52738c63df1a",
-        "dcfa8b37-bd76-42cc-8b00-96a2a1f81ffc"
+        "dcfa8b37-bd76-42cc-8b00-96a2a1f81ffc",
+        "81e9b408-aca2-40d0-b8ee-c6b3d3d6e31e"
       ],
       "settings": {
       }
