@@ -1,0 +1,90 @@
+
+
+{% schema %}
+{
+  "name": "Grid Item",
+  "tag": "section",
+  "class": "grid-item-section",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "one-product-item",
+      "name": "One Product Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "one_card_image",
+          "label": "Add Card Image"
+        },
+        {
+          "type": "text",
+          "id": "card_heading",
+          "label": "Card Heading"
+        },
+        {
+        "type": "textarea",
+        "id": "popover_text",
+        "label": "Card Content"
+        },
+        {
+        "type": "url",
+        "id": "one_item_url",
+        "label": "Product detaile Page link"
+        },
+        {
+          "type": "select",
+          "id": "popover_top_position",
+          "label": "Card Popover Position",
+          "options": [
+            {
+              "value": "start",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "flex-end",
+              "label": "Right"
+            }
+          ],
+          "default": "start"
+        },
+        {
+          "type": "select",
+          "id": "popover_left_position",
+          "label": "Card Popover Position",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "flex-end",
+              "label": "Bottom"
+            }
+          ],
+          "default": "top"
+        },
+        {
+         "type": "checkbox",
+         "id": "two_card_opation",
+         "label": "Show Two Card" 
+        }
+
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.apps.presets.name"
+    }
+  ]
+}
+{% endschema %}

@@ -3,6 +3,12 @@
     "slider_one_item": {
       "type": "slider-one-item"
     },
+    "two_colume_section": {
+      "type": "two-colume-section"
+    },
+    "store_info_card": {
+      "type": "store-info-card"
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -221,7 +227,9 @@
     }
   },
   "order": [
+    "store_info_card",
     "slider_one_item",
+    "two_colume_section",
     "image_banner",
     "rich_text",
     "featured_collection",

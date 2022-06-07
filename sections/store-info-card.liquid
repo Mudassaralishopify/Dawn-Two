@@ -1,0 +1,83 @@
+<style>
+  .store-info-card-bg {
+    background: rgba(12, 196, 89, 0.9);
+  }
+  .card-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .card_logo {
+    width: 100px;
+    margin-right: 30px;
+  }
+  .store-info-card-content {
+    width: calc(100% - 130px)
+  }
+</style>
+
+
+<div class="container-fluid p-0 store-info-card-bg">
+  <div class="container">
+    <div class="row">
+      {%- for block in section.blocks -%}
+        {% if block.type == 'store-info-card'%}
+          <div class="col-md-4">
+            <a href="{{ block.settings.card_link}}" class="card-wrapper">
+              <div class="card_logo">
+                <img src="{{ block.settings.card_icon | img_url: '100x100' }}" class="img-fluid">
+              </div>
+              <div class="store-info-card-content">
+                <h3>{{ block.settings.card_heading }}</h3>
+                <p> {{ block.settings.card_content }}</p>
+              </div>
+            </a>
+          </div>
+        {% endif %}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+"name": "Store Info Card",
+"tag": "section",
+"class": "store-info-card",
+"settings": [
+],
+"blocks": [
+{
+"type": "store-info-card",
+"name": "Store Info Card",
+"settings": [
+{
+"type": "image_picker",
+"id": "card_icon",
+"label": "Add Card Icon"
+},
+{
+"type": "text",
+"id": "card_heading",
+"label": "Heading"
+},
+{
+"type": "textarea",
+"id": "card_content",
+"label": "Content"
+},
+{
+"type": "url",
+"id": "card_link",
+"label": "Add Page Link"
+}
+]
+}
+],
+"presets": [
+{
+"name": "hello"
+}
+]
+}
+{% endschema %}
