@@ -83,10 +83,23 @@
             "popover_top_position": "start",
             "popover_left_position": "top"
           }
+        },
+        "dcfa8b37-bd76-42cc-8b00-96a2a1f81ffc": {
+          "type": "product-item",
+          "settings": {
+            "two_card_opation": true,
+            "one_card_image": "shopify:\/\/shop_images\/3.png",
+            "card_heading": "Card Heading",
+            "popover_text": "Card Content",
+            "one_item_url": "shopify:\/\/pages\/man",
+            "popover_top_position": "start",
+            "popover_left_position": "top"
+          }
         }
       },
       "block_order": [
-        "45727e38-825e-49ae-aaf4-52738c63df1a"
+        "45727e38-825e-49ae-aaf4-52738c63df1a",
+        "dcfa8b37-bd76-42cc-8b00-96a2a1f81ffc"
       ],
       "settings": {
       }
