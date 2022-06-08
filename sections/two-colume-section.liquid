@@ -3,22 +3,48 @@
     position: relative;
     overflow: hidden;
   }
-  .single-card::after {
+  .single-card::after, .two-card::after {
     content: '';
     display: block;
-    padding-top: 40%;
   }
-  .single-card img {
+  .single-card::after{
+    padding-top: 60%;
+  }
+  .two-card::after {
+    padding-top: 29.5%;
+  }
+  .single-card img, .two-card img {
     height: 100%;
     width: 100%;
     position: absolute;
     object-fit: cover;
   }
+  .content-card {
+    background: #fff;
+  }
+
+  .content-card p {
+      color: #4bcf84;
+      padding: 1rem;
+      text-align: center;
+      margin: 0;
+  }
+
+  .content-card h3 {
+      height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #126936;
+      color: #fff;
+      padding: 1rem;
+      margin: 0;
+  }
   .single-card .content-card, .two-card .content-card {
     position: absolute;
   }
-  .two-card {
-
+  .two-card-wrap + .two-card-wrap {
+    margin-top: 1rem;
   }
 </style>
 
@@ -45,10 +71,14 @@
           {%- for block in section.blocks -%}
             {% if  block.type == 'product-item' %}
               {% if  block.settings.two_card_opation %}
-                <div class="col-md-12">
+                <div class="col-md-12 two-card-wrap">
                   <a href="{{block.settings.one_item_url}}" class="two-card">
                     <img src="{{ block.settings.one_card_image | img_url: '250x250' }}"  alt=""/>
+                    {% assign p_horizontal = block.settings.popover_horizontal_position %}
+                    {% assign p_vertical = block.settings.popover_vertical_position %}
                     <div class="content-card">
+                      {{ p_horizontal }}
+                      {{ p_vertical }}
                       <p>{{ block.settings.popover_text}}</p>
                       <h3>{{ block.settings.card_heading }}</h3>
                     </div>
@@ -103,8 +133,8 @@
         },
         {
           "type": "select",
-          "id": "popover_top_position",
-          "label": "Card Popover Position",
+          "id": "popover_horizontal_position",
+          "label": "Card horizontal Position",
           "options": [
             {
               "value": "start",
@@ -123,8 +153,8 @@
         },
         {
           "type": "select",
-          "id": "popover_left_position",
-          "label": "Card Popover Position",
+          "id": "popover_vertical_position",
+          "label": "Card vertical Position",
           "options": [
             {
               "value": "top",
