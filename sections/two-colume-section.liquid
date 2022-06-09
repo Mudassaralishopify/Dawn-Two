@@ -1,9 +1,20 @@
 <style>
   .single-card, .two-card {
-    position: relative;
-    overflow: hidden;
+    background-color: #cccccc;
+    height: 500px; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    display: flex;
+    padding: 1rem;
   }
-  .single-card::after, .two-card::after {
+  .single-card {
+    height: 400px;
+  }
+  .two-card {
+    height: 195px;
+  }
+  /* .single-card::after, .two-card::after {
     content: '';
     display: block;
   }
@@ -18,7 +29,7 @@
     width: 100%;
     position: absolute;
     object-fit: cover;
-  }
+  } */
   .content-card {
     background: #fff;
   }
@@ -41,7 +52,8 @@
       margin: 0;
   }
   .single-card .content-card, .two-card .content-card {
-    position: absolute;
+    /* position: absolute; */
+    max-width: 200px;
   }
   .two-card-wrap + .two-card-wrap {
     margin-top: 1rem;
@@ -54,8 +66,12 @@
         {%- for block in section.blocks -%}
           {% if  block.type == 'product-item' %}
             {% if  block.settings.two_card_opation != true %}
-              <a href="{{block.settings.one_item_url}}" class="single-card">
-                <img src="{{ block.settings.one_card_image | img_url: '500x500' }}"  alt=""/>
+            {% assign bg_image = block.settings.one_card_image | img_url: '500x500' %}
+            {% assign p_horizontal = block.settings.popover_horizontal_position %}
+            {% assign p_vertical = block.settings.popover_vertical_position %}
+              <a href="{{block.settings.one_item_url}}" class="single-card" 
+              style="background-image:url( '{{ bg_image}}' ); justify-content: {{ p_horizontal }} ;align-items: {{ p_vertical }};">
+                
                 <div class="content-card">
                   <p>{{ block.settings.popover_text}}</p>
                   <h3>{{ block.settings.card_heading }}</h3>
@@ -72,13 +88,13 @@
             {% if  block.type == 'product-item' %}
               {% if  block.settings.two_card_opation %}
                 <div class="col-md-12 two-card-wrap">
-                  <a href="{{block.settings.one_item_url}}" class="two-card">
-                    <img src="{{ block.settings.one_card_image | img_url: '250x250' }}"  alt=""/>
-                    {% assign p_horizontal = block.settings.popover_horizontal_position %}
-                    {% assign p_vertical = block.settings.popover_vertical_position %}
+                  {% assign bg_image = block.settings.one_card_image | img_url: '250x250' %}
+                  {% assign p_horizontal = block.settings.popover_horizontal_position %}
+                  {% assign p_vertical = block.settings.popover_vertical_position %}
+                  <a href="{{block.settings.one_item_url}}" class="two-card" 
+                  style="background-image:url( {{ bg_image }} ); 
+                  justify-content: {{ p_horizontal }} ;align-items: {{ p_vertical }};">
                     <div class="content-card">
-                      {{ p_horizontal }}
-                      {{ p_vertical }}
                       <p>{{ block.settings.popover_text}}</p>
                       <h3>{{ block.settings.card_heading }}</h3>
                     </div>
@@ -137,7 +153,7 @@
           "label": "Card horizontal Position",
           "options": [
             {
-              "value": "start",
+              "value": "flex-start",
               "label": "Left"
             },
             {
@@ -149,7 +165,7 @@
               "label": "Right"
             }
           ],
-          "default": "start"
+          "default": "flex-start"
         },
         {
           "type": "select",
@@ -157,7 +173,7 @@
           "label": "Card vertical Position",
           "options": [
             {
-              "value": "top",
+              "value": "flex-start",
               "label": "Top"
             },
             {
@@ -169,7 +185,7 @@
               "label": "Bottom"
             }
           ],
-          "default": "top"
+          "default": "flex-start"
         }
 
       ]
