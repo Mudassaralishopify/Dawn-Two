@@ -1,0 +1,103 @@
+<!-- <script src="{{ 'slider.js' | asset_url }}" defer="defer"></script> -->
+
+<style>
+  .product-card .card-img-top {
+    max-height: 300px;
+  }
+</style>
+
+  <div class="container products-items-slider">
+    {% for product in collections.all.products %}
+    <div class="product-card">
+      <div class="card">
+        <img src="{{ product.featured_image | product_img_url: 'medium' }}" class="card-img-top ratio ratio-1x1"
+          alt="{{ product.title | escape  }}">
+        <a href="{{ product.url }}" class="btn btn-primary shop-now stretched-link">{{ product.title | escape }}</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+{% schema %}
+{
+  "name": "Three Card Section",
+  "tag": "section",
+  "settings": [
+    {
+     "type": "text",
+     "id": "section_card_heading",
+     "label": "Add Section Heading",
+     "placeholder":"add text"
+    },
+    {
+     "type": "textarea",
+     "id": "section_description",
+     "label": "Add Section Content",
+    "placeholder": "Add Content ....."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card-block",
+      "name": "product items slider",
+     "settings": [
+       {
+        "type": "image_picker",
+        "id": "card_image",
+        "label": "Add card Image"
+       },
+       {
+        "type": "text",
+        "id": "card_heading",
+        "label": "Card Heading"
+       },
+       {
+        "type": "textarea",
+        "id": "card_content",
+        "label": "Card Content"
+       },
+       {
+        "type": "select",
+        "id": "popover_horizontal_position",
+        "label": "Card horizontal Position",
+        "options": [
+          {
+            "value": "flex-start",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "flex-end",
+            "label": "Right"
+          }
+        ],
+        "default": "flex-start"
+      },
+      {
+        "type": "select",
+        "id": "popover_vertical_position",
+        "label": "Card vertical Position",
+        "options": [
+          {
+            "value": "flex-start",
+            "label": "Top"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "flex-end",
+            "label": "Bottom"
+          }
+        ],
+        "default": "flex-start"
+      }
+     ]
+    }
+  ]
+}
+{% endschema %}

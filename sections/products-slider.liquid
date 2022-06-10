@@ -1,0 +1,38 @@
+<!-- <script src="{{ 'slider.js' | asset_url }}" defer="defer"></script> -->
+
+<style>
+  .product-card .card-img-top {
+    max-height: 300px;
+  }
+</style>
+
+  <div class="container products-items-slider">
+    {% for product in collections.all.products %}
+    <div class="product-card">
+      <div class="card">
+        <img src="{{ product.featured_image | product_img_url: 'medium' }}" class="card-img-top ratio ratio-1x1"
+          alt="{{ product.title | escape  }}">
+        <a href="{{ product.url }}" class="btn btn-primary shop-now stretched-link">{{ product.title | escape }}</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+<!-- {% schema %}
+{
+  "name": "products items slider",
+  "tag": "section",
+  "class": "products-slider-section",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "products-slider",
+      "name": "product items slider",
+     "settings": [
+       
+     ]
+    }
+  ]
+}
+{% endschema %} -->

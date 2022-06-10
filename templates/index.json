@@ -1,9 +1,7 @@
 {
   "sections": {
     "store_info_card": {
-      "type": "store-info-card",
-      "settings": {
-      }
+      "type": "store-info-card"
     },
     "slider_one_item": {
       "type": "slider-one-item",
@@ -110,6 +108,9 @@
       ],
       "settings": {
       }
+    },
+    "products-slider": {
+      "type": "products-slider"
     },
     "image_banner": {
       "type": "image-banner",
@@ -332,6 +333,7 @@
     "store_info_card",
     "slider_one_item",
     "two_colume_section",
+    "products-slider",
     "image_banner",
     "rich_text",
     "featured_collection",
