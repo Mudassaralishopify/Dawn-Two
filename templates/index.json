@@ -112,6 +112,9 @@
     "products-slider": {
       "type": "products-slider"
     },
+    "three_card_section":{
+      "type": "three-card-section"
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -334,6 +337,7 @@
     "slider_one_item",
     "two_colume_section",
     "products-slider",
+    "three_card_section",
     "image_banner",
     "rich_text",
     "featured_collection",

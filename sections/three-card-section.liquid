@@ -1,22 +1,135 @@
-<!-- <script src="{{ 'slider.js' | asset_url }}" defer="defer"></script> -->
 
 <style>
-  .product-card .card-img-top {
-    max-height: 300px;
+  .three-card-bg {
+    background-color: rgba(12, 196, 89, 0.719);
+    padding: 4rem 0;
   }
+  .three-card-bg h3 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .three-card-bg p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+  }
+  .card-style {
+    background-color: #cccccc;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    display: flex;
+    padding: 1rem;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  /* .card-style:hover {
+    transform: scale(1.1);
+    
+  } */
+  .big-card, .small-single-card {
+    height: 500px; 
+  }
+  .content-card p {
+    color: #000;
+  }
+  .content-card h3 {
+    height: auto !important;
+  }
+  a.card-style {
+    text-decoration: none;
+  }
+  .small-two-card {
+    height: 242px;
+  }
+  .small-two-card + .small-two-card {
+    margin-top: 1rem;
+  }
+
 </style>
 
-  <div class="container products-items-slider">
-    {% for product in collections.all.products %}
-    <div class="product-card">
-      <div class="card">
-        <img src="{{ product.featured_image | product_img_url: 'medium' }}" class="card-img-top ratio ratio-1x1"
-          alt="{{ product.title | escape  }}">
-        <a href="{{ product.url }}" class="btn btn-primary shop-now stretched-link">{{ product.title | escape }}</a>
+<div class="container-fluid three-card-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>{{ section.settings.section_card_heading }}</h3>
+        <p>{{ section.settings.section_description }}</p>
       </div>
+         <div class="col-md-6" > 
+            {% for block in section.blocks %}  
+              {% if block.type == "big-card" %}
+                  {% assign bg_image = block.settings.card_image | img_url: '500x500' %}
+                  {% assign p_horizontal = block.settings.horizontal_position %}
+                  {% assign p_vertical = block.settings.vertical_position %}  
+                
+                  <a href="{{block.settings.one_item_url}}" {{ block.shopify_attributes }} class="big-card card-style" style="background-image:url( '{{ bg_image }}' ); 
+                  justify-content: {{ p_horizontal }} ;align-items: {{ p_vertical }};">
+                      <div class="content-card">
+                        {% if block.settings.card_content != blank %}
+                          <p>{{ block.settings.card_content}}</p>
+                        {% endif %}
+                        {% if block.settings.card_heading != blank %}
+                          <h3>{{ block.settings.card_heading }}</h3>
+                        {% endif %}
+                      </div>
+                    </a>
+              
+              {% endif %}
+            {% endfor %} 
+          </div> 
+          <div class="col-md-6">
+            <div class="row">
+                {% for block in section.blocks %} 
+                  {% if block.type ==  'small-single-block' %}
+                    <div class="col-md-6">
+                      {% assign bg_image = block.settings.card_image | img_url: '500x500' %}
+                      {% assign p_horizontal = block.settings.horizontal_position %}
+                      {% assign p_vertical = block.settings.vertical_position %}  
+
+                      <a href="{{block.settings.detail_link}}" {{ block.shopify_attributes }} class="small-single-card card-style" style="background-image:url( '{{ bg_image }}' ); 
+                      justify-content: {{ p_horizontal }} ;align-items: {{ p_vertical }};">
+                          <div class="content-card">
+                            {% if block.settings.card_content != blank %}
+                              <p>{{ block.settings.card_content}}</p>
+                            {% endif %}
+                            {% if block.settings.card_heading != blank %}
+                              <h3>{{ block.settings.card_heading }} </h3>
+                            {% endif %}
+                          </div>
+                        </a>
+                    </div>
+                  {% endif %}
+                {% endfor %} 
+                <div class="col-md-6">
+                  {% for block in section.blocks %} 
+                    {% if block.type == 'small-two-block' %}
+                      {% assign bg_image = block.settings.card_image | img_url: '500x500' %}
+                      {% assign p_horizontal = block.settings.horizontal_position %}
+                      {% assign p_vertical = block.settings.vertical_position %}  
+
+                      <a href="{{block.settings.detail_link}}" {{ block.shopify_attributes }} class="card-style small-two-card" style="background-image:url( '{{ bg_image }}' ); 
+                      justify-content: {{ p_horizontal }} ;align-items: {{ p_vertical }};">
+                          <div class="content-card">
+                            {% if block.settings.card_content != blank %}
+                              <p>{{ block.settings.card_content}}</p>
+                            {% endif %}
+                            {% if block.settings.card_heading != blank %}
+                              <h3>{{ block.settings.card_heading }}</h3>
+                            {% endif %}
+                          </div>
+                        </a>
+                    {% endif %}
+                  {% endfor %} 
+              </div>
+            </div>
+          </div>
     </div>
-    {% endfor %}
   </div>
+</div>
+
+
+
 
 {% schema %}
 {
@@ -33,14 +146,15 @@
      "type": "textarea",
      "id": "section_description",
      "label": "Add Section Content",
-    "placeholder": "Add Content ....."
+     "placeholder": "Add Content ....."
     }
   ],
   "blocks": [
     {
-      "type": "card-block",
-      "name": "product items slider",
-     "settings": [
+      "type": "big-card",
+      "name": "Big Card",
+      "limit": 1,
+      "settings": [
        {
         "type": "image_picker",
         "id": "card_image",
@@ -57,8 +171,13 @@
         "label": "Card Content"
        },
        {
+         "type": "url",
+         "id": "detail_link",
+         "label": "Add Page Url"
+       },
+       {
         "type": "select",
-        "id": "popover_horizontal_position",
+        "id": "horizontal_position",
         "label": "Card horizontal Position",
         "options": [
           {
@@ -78,7 +197,141 @@
       },
       {
         "type": "select",
-        "id": "popover_vertical_position",
+        "id": "vertical_position",
+        "label": "Card vertical Position",
+        "options": [
+          {
+            "value": "flex-start",
+            "label": "Top"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "flex-end",
+            "label": "Bottom"
+          }
+        ],
+        "default": "flex-start"
+      }
+     ]
+    },
+    {
+      "type": "small-single-block",
+      "name": "Small Single Block",
+      "limit": 1,
+      "settings": [
+       {
+        "type": "image_picker",
+        "id": "card_image",
+        "label": "Add card Image"
+       },
+       {
+        "type": "text",
+        "id": "card_heading",
+        "label": "Card Heading"
+       },
+       {
+        "type": "textarea",
+        "id": "card_content",
+        "label": "Card Content"
+       },
+       {
+        "type": "url",
+        "id": "detail_link",
+        "label": "Add Page Url"
+       },
+       {
+        "type": "select",
+        "id": "horizontal_position",
+        "label": "Card horizontal Position",
+        "options": [
+          {
+            "value": "flex-start",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "flex-end",
+            "label": "Right"
+          }
+        ],
+        "default": "flex-start"
+      },
+      {
+        "type": "select",
+        "id": "vertical_position",
+        "label": "Card vertical Position",
+        "options": [
+          {
+            "value": "flex-start",
+            "label": "Top"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "flex-end",
+            "label": "Bottom"
+          }
+        ],
+        "default": "flex-start"
+      }
+     ]
+    },
+    {
+      "type": "small-two-block",
+      "name": "Small Two Block",
+      "limit": 2,
+      "settings": [
+       {
+        "type": "image_picker",
+        "id": "card_image",
+        "label": "Add card Image"
+       },
+       {
+        "type": "text",
+        "id": "card_heading",
+        "label": "Card Heading"
+       },
+       {
+        "type": "textarea",
+        "id": "card_content",
+        "label": "Card Content"
+       },
+       {
+        "type": "url",
+        "id": "detail_link",
+        "label": "Add Page Url"
+       },
+       {
+        "type": "select",
+        "id": "horizontal_position",
+        "label": "Card horizontal Position",
+        "options": [
+          {
+            "value": "flex-start",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "flex-end",
+            "label": "Right"
+          }
+        ],
+        "default": "flex-start"
+      },
+      {
+        "type": "select",
+        "id": "vertical_position",
         "label": "Card vertical Position",
         "options": [
           {
