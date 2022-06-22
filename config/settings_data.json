@@ -152,12 +152,21 @@
               "heading": "Our mission",
               "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
             }
+          },
+          "84828c05-389e-4d8f-9ee6-4487319c871a": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Clothing-Logo-Vector.png",
+              "image_width": 200,
+              "alignment": "center"
+            }
           }
         },
         "block_order": [
           "footer-0",
           "footer-1",
-          "footer-2"
+          "footer-2",
+          "84828c05-389e-4d8f-9ee6-4487319c871a"
         ],
         "settings": {
           "color_scheme": "background-1",
