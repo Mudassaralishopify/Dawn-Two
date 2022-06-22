@@ -157,12 +157,24 @@
             "horizontal_position": "flex-start",
             "vertical_position": "flex-end"
           }
+        },
+        "318b8293-fe74-4e48-88c1-4b4a4249ba0a": {
+          "type": "small-two-block",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/woman-relazing-and-journalling-on-couch.jpg",
+            "card_heading": "Card Content",
+            "card_content": "Card horizontal PositionCard horizontal Position",
+            "detail_link": "shopify:\/\/pages\/man",
+            "horizontal_position": "flex-end",
+            "vertical_position": "flex-end"
+          }
         }
       },
       "block_order": [
         "3599d23b-ee91-4645-bf91-13d85779bccb",
         "7bdb230a-3c2d-4f2b-a633-71bc3422b024",
-        "2f5a7093-5856-44b1-81b0-9e9e40c501ca"
+        "2f5a7093-5856-44b1-81b0-9e9e40c501ca",
+        "318b8293-fe74-4e48-88c1-4b4a4249ba0a"
       ],
       "settings": {
         "section_card_heading": "",
