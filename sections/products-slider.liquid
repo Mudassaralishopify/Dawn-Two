@@ -6,15 +6,28 @@
   }
 </style>
 
-  <div class="container products-items-slider">
-    {% for product in collections.all.products %}
-    <div class="product-card">
-      <div class="card">
-        <img src="{{ product.featured_image | product_img_url: 'medium' }}" class="card-img-top ratio ratio-1x1"
-          alt="{{ product.title | escape  }}">
-        <a href="{{ product.url }}" class="btn btn-primary shop-now stretched-link">{{ product.title | escape }}</a>
-      </div>
+<!-- <div class="container products-items-slider">
+  {% for product in collections.all.products %}
+  <div class="product-card">
+    <div class="card">
+      <img src="{{ product.featured_image | product_img_url: '300x300' }}" class="card-img-top ratio ratio-1x1"
+        alt="{{ product.title | escape  }}">
+      <a href="{{ product.url }}" class="btn btn-primary shop-now stretched-link">{{ product.title | escape }}</a>
     </div>
-    {% endfor %}
   </div>
+  {% endfor %}
+</div> -->
+
+
+<div class="container products-items-slider">
+  {% for collections in collections.all.product %}
+  <div class="product-card">
+    <div class="card">
+      <img src="{{ collections.featured_image | product_img_url: '300x300' }}" class="card-img-top ratio ratio-1x1"
+        alt="{{ collections.title | escape  }}">
+      <a href="{{ collections.url }}" class="btn btn-primary shop-now stretched-link">{{ collections.title | escape }}</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 

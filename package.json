@@ -1,5 +1,19 @@
 {
-  "dependencies": {
-    "gulp": "^4.0.2"
-  }
+  "name": "dawn-two",
+  "version": "1.0.0",
+  "description": "Dawn-Two",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mudassaralishopify/Dawn-Two.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mudassaralishopify/Dawn-Two/issues"
+  },
+  "homepage": "https://github.com/Mudassaralishopify/Dawn-Two#readme"
 }

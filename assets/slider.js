@@ -7,7 +7,7 @@ $('.slick-carousel').slick({
   });
 $('.products-items-slider').slick({
   infinite: true,
-  slidesToShow: 3, 
+  slidesToShow: 5, 
   slidesToScroll: 1,
   arrows: true,
   // dots: true
