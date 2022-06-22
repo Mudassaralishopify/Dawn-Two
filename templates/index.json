@@ -142,9 +142,9 @@
             "card_image": "shopify:\/\/shop_images\/blond-woman-with-winter-pine.jpg",
             "card_heading": "Card Content",
             "card_content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            "detail_link": "",
+            "detail_link": "shopify:\/\/pages\/womens",
             "horizontal_position": "flex-start",
-            "vertical_position": "flex-start"
+            "vertical_position": "flex-end"
           }
         }
       },
