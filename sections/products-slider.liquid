@@ -1,30 +1,55 @@
 <!-- <script src="{{ 'slider.js' | asset_url }}" defer="defer"></script> -->
-
+{%- if section.settings.enable_quick_add -%}
+  <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.media='all'">
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 <style>
   .product-card .card-img-top {
     max-height: 300px;
     height: 100%;
 
   }
+
   .product-card {
     margin-right: 1rem;
   }
+
   .product-card .card img {
     height: 200px;
   }
+
   .products-items-slider {
     padding: 6rem 0 !important;
   }
 </style>
 
-<div class="container products-items-slider">
-  {% for product in collections.all.products %}
+<!-- <div class="container products-items-slider">
+  {% for product in collections.all.product %}
   <div>
     <div class="product-card">
       <div class="card">
         <img src="{{ product.featured_image | product_img_url: '300x300' }}" class="card-img-top ratio ratio-1x1"
           alt="{{ product.title | escape  }}">
         <a href="{{ product.url }}" class="btn btn-primary shop-now stretched-link">{{ product.title | escape }}</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div> -->
+<div class="container products-items-slider">
+  {% for collection in collections %}
+  <div>
+    <div class="product-card">
+      <div class="card">
+        {% if collection.image %}
+          {{ collection.image | image_url: width: 450, height: 450 | image_tag }}
+          <a href="{{ collection.url }}" class="btn btn-primary shop-now stretched-link">{{ collection.title | escape }}</a>
+        {% else %}
+        {% assign alt = collection.title | escape %}
+          {{ collection.products.first.image | image_url: width: 450, height: 450 | image_tag }}
+          <a href="{{ collection.url }}" class="btn btn-primary shop-now stretched-link">{{ collection.title | escape }}</a>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -43,3 +68,77 @@
   </div>
   {% endfor %}
 </div> -->
+
+
+{% schema %}
+{
+  "name": "Products Slider",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "full width",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "adapt"
+        },
+        {
+          "value": "portrait",
+          "label": "portrait"
+        },
+        {
+          "value": "square",
+          "label": "square"
+        }
+      ],
+      "default": "adapt",
+      "label": "image ratio"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "show vendor"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "default": false,
+      "label": "enable quick add"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Products Slider"
+    }
+  ]
+}
+{% endschema %}
