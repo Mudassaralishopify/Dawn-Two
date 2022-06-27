@@ -570,8 +570,8 @@
           </span>
         </a>
       {%- endif -%}
-
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+      <!-- {{ routes.cart_url }} -->
+      <a href="#" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble" data-drawer-trigger aria-controls="drawer-name" aria-expanded="false">
         {%- liquid
           if cart == empty
             render 'icon-cart-empty'
