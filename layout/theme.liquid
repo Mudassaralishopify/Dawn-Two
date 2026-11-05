@@ -219,7 +219,7 @@
     </script>
 
     {{ 'drawer.css' | asset_url | stylesheet_tag }}
-    {{ 'drawer.js' | asset_url | | script_tag }}
+    {{ 'drawer.js' | asset_url | script_tag }}
   </head>
 
   <body class="gradient">
@@ -274,3 +274,13 @@
     {%- endif -%}
   </body>
 </html>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{{ 'drawer.js' | asset_url | | script_tag }}"
+  to: "{{ 'drawer.js' | asset_url | script_tag }}"
+  position: 13554..13596
+{% endcomment %}
